@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>user get</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+<style>
+#v,#c, #recog{
+    height:200px;
+}
+</style>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/camanjs/3.2.2/caman.full.min.js"> </script>
+    </head>
+    <body>
+        <h1>sdf user get</h1>
+        <p id="con">a</p>
+
+<video id="v" controls loop>
+    <source src="Stephen_Fry-Happy_Birthday_GNU-hq_600px_780kbit.ogv" type="video/ogg">
+</video>
+
+<canvas id="c"> </canvas>
+
+        <script src="js/ccv.js"></script>
+        <script src="js/face.js"></script>
+
+        <script>
+            // face detection..
+            var v = document.getElementById('v');
+            var canvas = document.getElementById('c');
+            var context = canvas.getContext('2d');
+            var back = document.createElement('canvas');
+            var backcontext = back.getContext('2d');
+
+            v.addEventListener('play', function() {
+                cw = v.clientWidth;
+                ch = v.clientHeight;
+                canvas.width = cw;
+                canvas.height = ch;
+                back.width = cw;
+                back.height = ch;
+                vidInterval = setInterval(loop(v,context,backcontext,cw,ch),1000);
+            });
+
+
+            var loop = function(v,c,bc,w,h){
+                console.log('loop')
+
+               //ctx.drawImage(video, 0, 0, video.width, video.height);
+
+                 var comp = ccv.detect_objects({ "canvas" : (ccv.pre(c)),
+                                        "cascade" : cascade,
+                                        "interval" : 5,
+                                        "min_neighbors" : 1 });
+
+                 console.log(comp)
+
+                //  for (var i = 0; i < comp.length; i++) {
+                //     //ctx.drawImage(glasses, comp[i].x, comp[i].y,comp[i].width, comp[i].height);
+                //     ctx.fillStyle = "rgba(220,223,0, 0.5);";
+                //     ctx.fillRect(comp[i].x, comp[i].y,comp[i].width, comp[i].height);
+
+                //     console.log(comp[i].x, comp[i].y,comp[i].width, comp[i].height)
+                // }
+            }
+
+        </script>
+
+    </body>
+</html>
