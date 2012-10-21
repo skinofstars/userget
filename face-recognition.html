@@ -7,12 +7,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
-<style>
-#v,#c, #recog{
-    height:200px;
-}
-</style>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/camanjs/3.2.2/caman.full.min.js"> </script>
+        <style>
+            #v,#c, #recog{height:200px;}
+        </style>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/camanjs/3.2.2/caman.full.min.js"> </script>
     </head>
     <body>
         <h1>sdf user get</h1>
@@ -67,6 +65,39 @@
                 // }
             }
 
+        </script>
+
+
+        <script>
+
+            // this is kinda the original of the above
+            //   source http://wesbos.com/html5-video-face-detection-canvas-javascript/
+
+            // // face detection..
+            // var video = document.getElementById('v');
+            // var canvasTwo = document.getElementById("recog");
+            // var ctx = canvasTwo.getContext("2d");
+
+            // var box = new Image();
+
+            // var loop = function(){
+
+            //     ctx.drawImage(video, 0, 0, video.width, video.height, 0, 0, canvasTwo.width, canvasTwo.height);
+
+            //      var comp = ccv.detect_objects({ "canvas" : (ccv.pre(canvasTwo)),
+            //                             "cascade" : cascade,
+            //                             "interval" : 5,
+            //                             "min_neighbors" : 1 });
+
+            //      for (var i = 0; i < comp.length; i++) {
+            //         //ctx.drawImage(glasses, comp[i].x, comp[i].y,comp[i].width, comp[i].height);
+            //         ctx.fillStyle = "rgba(220,223,0, 0.5);";
+            //         ctx.fillRect(comp[i].x, comp[i].y,comp[i].width, comp[i].height);
+            //     }
+            // }
+            // video.addEventListener('play', function() {
+            //     vidInterval = setInterval(loop,1000);
+            // });
         </script>
 
     </body>
